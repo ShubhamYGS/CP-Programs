@@ -1,0 +1,23 @@
+{
+	"Print to console": {
+		"prefix": "ygscpp",
+		"body": [
+			"#include<bits/stdc++.h>",
+			"#define end '\\n'",
+			"#define ll long long int",
+			"#define fo(i,n) for(i=0;i<n;i++)",
+			"#define foi(i,k,n) for(i=k;i<n;i++)",
+			"using namespace std;",
+			"int main(){",
+			"\tios_base::sync_with_stdio(false);",
+			"\tcin.tie(0);",
+			"\tint n,i;",
+			"\tcin>>n;",
+			"\t",
+			"\t",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "Template for CPP"
+	}
+}
