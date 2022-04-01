@@ -38,6 +38,23 @@ void movePosRightArr2(int* arr,int n){
     }
 }
 
+/*Approach 3: Using two pointer (Sequence may change)*/
+void movePosRightArr3(int* arr,int n){
+    int i=0,j=n-1;
+    while(i<j){
+        if(arr[i]>0 && arr[j]<0){
+            swap(arr[i],arr[j]);
+            i++;
+            j--;
+        } else {
+            if(arr[i]<0)
+               i++;
+            if(arr[j]>0)
+                j--;
+        }
+    }
+}
+
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
@@ -49,7 +66,7 @@ int main(){
         cin>>arr[i];
     }
 
-    movePosRightArr2(arr,n);
+    movePosRightArr3(arr,n);
 
     fo(i,n){
         cout<<arr[i]<<" ";
