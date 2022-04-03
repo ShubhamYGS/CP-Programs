@@ -203,6 +203,18 @@ void traverse()
     cout << "\n";
 }
 
+//Recursive implementation of traverse
+void recursiveTraverse(struct node *q)
+{
+    if (q == NULL)
+    {
+        cout << "\n";
+        return;
+    }
+    cout << q->data << " ";
+    recursiveTraverse(q->next);
+}
+
 int main()
 {
     int choice;
