@@ -9,18 +9,17 @@ For dequeue: delete at start
 class Queue
 {
 public:
-    int n, front, rear;
+    int n, rear;
     int *arr;
 
     Queue(int num)
     {
         n = num;
         arr = new int[n];
-        front = -1;
         rear = -1;
     }
 
-    void enqueue()
+    void enqueue() // Time Complexity: O(1)
     {
         if (rear == n - 1)
         {
@@ -31,52 +30,54 @@ public:
             int ele;
             cout << "Enter Element: ";
             cin >> ele;
-            if (front == -1)
-            {
-                rear++;
-                front++;
-            }
-            else
-            {
-                rear++;
-            }
+            rear++;
             arr[rear] = ele;
             cout << "Enqueued: " << arr[rear] << "\n";
         }
     }
 
-    void dequeue()
+    void dequeue() // Time Complexity: O(n)
     {
-        if (front == -1)
+        if (rear == -1)
         {
             cout << "Empty: dequeue operation can't be perfoemed\n";
         }
         else
         {
-            cout << "Dequeued: " << arr[front] << "\n";
-            front++;
-            // If we are at the end of queue
-            if (front > rear)
+            cout << "Dequeued: " << arr[0] << "\n";
+            for (int i = 0; i < rear; i++)
             {
-                front = -1;
-                rear = -1;
+                arr[i] = arr[i + 1];
             }
+            rear--;
         }
     }
 
     void traverse()
     {
-        if (front == -1)
+        if (rear == -1)
         {
             cout << "Queue is empty\n";
         }
         else
         {
-            for (int i = front; i <= rear; i++)
+            for (int i = 0; i <= rear; i++)
             {
                 cout << arr[i] << " ";
             }
             cout << "\n";
+        }
+    }
+
+    void getFront()
+    {
+        if (rear == -1)
+        {
+            cout << "Queue is empty\n";
+        }
+        else
+        {
+            cout << "Front is: " << arr[0] << "\n";
         }
     }
 };
@@ -93,7 +94,8 @@ int main()
         cout << "1.Enqueue"
              << "\n2.Dequeue"
              << "\n3.Traverse"
-             << "\n4.Exit\n";
+             << "\n4.Front"
+             << "\n5.Exit\n";
         cin >> choice;
         switch (choice)
         {
@@ -107,12 +109,15 @@ int main()
             q.traverse();
             break;
         case 4:
+            q.getFront();
+            break;
+        case 5:
             cout << "Exited Successfully\n";
             break;
         default:
             cout << "Invalid Choice\n";
         }
-    } while (choice != 4);
+    } while (choice != 5);
 
     return 0;
 }
