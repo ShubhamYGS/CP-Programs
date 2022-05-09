@@ -56,7 +56,7 @@ Keys are: 23 43 13 27 64
 /*
 --------------Fourth Method-------------- (Not Implemented)
 Function: h1(x)=h(x)%10 (First try this function) [If space already occupied try final function]
-Function: h2(x)=R-(x%R) = 7-(x%7)   [Here R is smallest natural number near to hash size (10) which is 7]
+Function: h2(x)=R-(x%R) = 7-(x%7)   [Here R is smallest prime number near to hash size (10) which is 7]
 Final Function: hf(x)=(h1(x)+i*h2(x))%10 where i=0,1,2,3,...
 Keys are: 5 25 15 35 95
 0: 
